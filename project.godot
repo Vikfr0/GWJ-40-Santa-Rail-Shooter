@@ -39,6 +39,11 @@ config/icon="res://icon.png"
 
 Settings="*res://src/core/Settings.gd"
 
+[display]
+
+window/size/width=1280
+window/size/height=720
+
 [input]
 
 shoot={

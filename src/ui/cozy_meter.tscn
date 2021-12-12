@@ -1,15 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/ui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/ui/cozy_meter.gd" type="Script" id=2]
 
-[node name="CozyMeter" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer"]
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 1 )
@@ -17,11 +11,12 @@ custom_constants/margin_right = 8
 custom_constants/margin_top = 8
 custom_constants/margin_left = 8
 custom_constants/margin_bottom = 8
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 158.0
@@ -30,7 +25,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 150.0
 margin_bottom = 14.0
 text = "Cozy Meter"
@@ -39,7 +34,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
 margin_top = 18.0
 margin_right = 150.0
 margin_bottom = 32.0

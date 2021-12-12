@@ -22,15 +22,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.73583, 0 )
 
 [node name="Camera" type="Camera" parent="CameraPivot"]
 
-[node name="BFPG" parent="CameraPivot" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.49877, -1.50451 )
+[node name="ProjectileSpawnPosition" type="Spatial" parent="CameraPivot"]
+transform = Transform( 1, 0, -2.98023e-08, 2.08616e-07, 1, 0, 1.19209e-07, 1.49012e-08, 1, 0.0655886, -0.738219, -3.3265 )
 
-[node name="ProjectileSpawnPosition" type="Spatial" parent="CameraPivot/BFPG"]
-transform = Transform( 1, 0, -2.98023e-08, 2.08616e-07, 1, 0, 1.19209e-07, 1.49012e-08, 1, 0.0655886, 0.760551, -1.82199 )
-
-[node name="Timer" type="Timer" parent="CameraPivot/BFPG"]
+[node name="Timer" type="Timer" parent="CameraPivot"]
 wait_time = 0.33
 one_shot = true
+
+[node name="BFPG" parent="CameraPivot" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.209, -1.286 )
 
 [node name="Area" type="Area" parent="."]
 collision_mask = 6

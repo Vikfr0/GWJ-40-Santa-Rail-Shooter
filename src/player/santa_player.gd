@@ -1,7 +1,7 @@
 class_name SantaPlayer
 extends KinematicBody
 
-signal coziness_updated
+signal santa_coziness_updated
 
 const MAX_ROTATION_VALUE := 1.2
 
@@ -14,8 +14,8 @@ var coziness = 100
 onready var world = get_tree().get_nodes_in_group("world")[0]
 
 onready var camera_pivot: Spatial = $CameraPivot
-onready var projectile_spawn_pos: Spatial = $CameraPivot/BFPG/ProjectileSpawnPosition
-onready var timer: Timer = $CameraPivot/BFPG/Timer
+onready var projectile_spawn_pos: Spatial = $CameraPivot/ProjectileSpawnPosition
+onready var timer: Timer = $CameraPivot/Timer
 
 
 func _input(event: InputEvent) -> void:

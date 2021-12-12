@@ -6,4 +6,7 @@ const SPEED := 70.0
 
 
 func _process(delta: float):
-	var _collision = move_and_collide(global_transform.basis.z.normalized() * -SPEED * delta)
+	var collision = move_and_collide(global_transform.basis.z.normalized() * -SPEED * delta)
+	if collision:
+		if collision.collider.get_collision_layer() == 4:
+			queue_free()
