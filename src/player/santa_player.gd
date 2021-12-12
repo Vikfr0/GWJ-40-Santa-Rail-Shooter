@@ -1,15 +1,21 @@
+class_name SantaPlayer
 extends KinematicBody
+
+signal coziness_updated
 
 const MAX_ROTATION_VALUE := 1.2
 
-const present_bullet: PackedScene = preload("res://src/player/present_bullet.tscn")
+const SNOWBALL_HIT_COZINESS_DECREASE := 5
 
-onready var world = get_tree().get_nodes_in_group("world")
+const present_bullet: PackedScene = preload("res://src/player/present_projectile.tscn")
 
-onready var camera_pivot = $CameraPivot
+var coziness = 100
 
-func _ready():
-	pass # Replace with function body.
+onready var world = get_tree().get_nodes_in_group("world")[0]
+
+onready var camera_pivot: Spatial = $CameraPivot
+onready var projectile_spawn_pos: Spatial = $CameraPivot/BFPG/ProjectileSpawnPosition
+onready var timer: Timer = $CameraPivot/BFPG/Timer
 
 
 func _input(event: InputEvent) -> void:
@@ -20,7 +26,18 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.action_press("shoot"):
+	if Input.is_action_pressed("shoot") and timer.is_stopped():
 		var projectile = present_bullet.instance()
-		var spawn_position = self.global_transform.origin + (Vector3.FORWARD * self.rotation.y)
+		projectile.rotation.y = self.rotation.y
+		projectile.rotation.x = camera_pivot.rotation.x
 		world.add_child(projectile)
+		projectile.global_transform.origin = projectile_spawn_pos.global_transform.origin
+		timer.start()
+		
+
+
+func _on_Area_body_entered(body: Node) -> void:
+	if body is Snowball:
+		coziness -= SNOWBALL_HIT_COZINESS_DECREASE
+		emit_signal("santa_coziness_updated", coziness)
+		body.queue_free()

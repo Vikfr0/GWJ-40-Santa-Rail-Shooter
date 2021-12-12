@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody",
+"class": "PresentProjectile",
+"language": "GDScript",
+"path": "res://src/player/present_projectile.gd"
+}, {
+"base": "KinematicBody",
+"class": "SantaPlayer",
+"language": "GDScript",
+"path": "res://src/player/santa_player.gd"
+}, {
+"base": "KinematicBody",
+"class": "Snowball",
+"language": "GDScript",
+"path": "res://src/enemy/snowball.gd"
+} ]
+_global_script_class_icons={
+"PresentProjectile": "",
+"SantaPlayer": "",
+"Snowball": ""
+}
+
 [application]
 
 config/name="Mad Santa Rail Shooter"
@@ -16,6 +38,20 @@ config/icon="res://icon.png"
 [autoload]
 
 Settings="*res://src/core/Settings.gd"
+
+[input]
+
+shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+3d_physics/layer_1="player"
+3d_physics/layer_2="enemy"
+3d_physics/layer_3="object"
 
 [physics]
 
