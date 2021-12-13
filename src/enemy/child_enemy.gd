@@ -17,6 +17,7 @@ onready var timer: Timer = $Timer
 
 
 func _process(_delta: float):
+	look_at(player.global_transform.origin, Vector3.UP)	
 	var distance_to_player := player.global_transform.origin - self.global_transform.origin
 	if abs(distance_to_player.length()) > MAX_RANGE:
 		#var path = navigation.get_simple_path(self.global_transform.origin, player.global_transform.origin)
@@ -25,7 +26,6 @@ func _process(_delta: float):
 		#else:
 		#	print("player not found in nav")
 		var _collision = move_and_slide(distance_to_player.normalized() * MOVE_SPEED)
-		look_at(player.global_transform.origin, Vector3.UP)
 	else:
 		if timer.is_stopped():
 			_throw_snowball()
