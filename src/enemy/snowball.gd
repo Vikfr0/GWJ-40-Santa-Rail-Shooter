@@ -15,4 +15,4 @@ func _process(delta: float) -> void:
 		var collision = move_and_collide(direction * PROJECTILE_SPEED * delta)
 		if collision:
 			print("snowball hit: ", collision.collider)
-			queue_free()
+			$AnimationPlayer.play("explode")
