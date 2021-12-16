@@ -37,8 +37,8 @@ tracks/1/keys = {
 
 [node name="PresentProjectile" type="KinematicBody"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-collision_layer = 4
-collision_mask = 6
+collision_layer = 8
+collision_mask = 14
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -46,7 +46,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0103271, -0.0154906, -0.0202
 shape = SubResource( 1 )
 
 [node name="present" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.353553, -0.353553, 0, 0.353553, 0.353553, 0, 0, 0, 0.5, 0.0258176, 0.272853, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0258176, 0.272853, 0 )
 
 [node name="SelfDestructTimer" parent="." instance=ExtResource( 4 )]
 

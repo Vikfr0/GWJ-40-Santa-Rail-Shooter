@@ -14,7 +14,7 @@ height = 3.25054
 [node name="KinematicBody" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.04369, 0 )
 collision_layer = 2
-collision_mask = 4
+collision_mask = 12
 script = ExtResource( 2 )
 
 [node name="child" parent="." instance=ExtResource( 1 )]

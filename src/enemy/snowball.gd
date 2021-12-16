@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 	else:
 		var collision = move_and_collide(direction * PROJECTILE_SPEED * delta)
 		if collision:
-			print("snowball hit something")
+			print("snowball hit: ", collision.collider)
 			queue_free()

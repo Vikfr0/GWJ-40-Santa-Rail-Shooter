@@ -50,6 +50,10 @@ Settings="*res://src/core/Settings.gd"
 window/size/width=1920
 window/size/height=1080
 
+[global]
+
+layer=false
+
 [input]
 
 shoot={
@@ -62,7 +66,8 @@ shoot={
 
 3d_physics/layer_1="player"
 3d_physics/layer_2="enemy"
-3d_physics/layer_3="object"
+3d_physics/layer_3="snowball"
+3d_physics/layer_4="objects"
 
 [physics]
 
