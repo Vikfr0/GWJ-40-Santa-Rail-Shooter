@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/graphics/child.glb" type="PackedScene" id=1]
+[ext_resource path="res://assets/graphics/child.gltf" type="PackedScene" id=1]
 [ext_resource path="res://src/enemy/child_enemy.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.920877
-height = 3.01932
+radius = 0.72326
+height = 2.98852
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.842844
@@ -18,10 +18,10 @@ collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="child" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.779954, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.55628, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.783439, 0 )
 shape = SubResource( 1 )
 
 [node name="Area" type="Area" parent="."]
@@ -37,6 +37,6 @@ wait_time = 3.0
 one_shot = true
 
 [node name="SnowballSpawnPosition" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04502, -0.764502 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03848, 0.71213, -1.04092 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

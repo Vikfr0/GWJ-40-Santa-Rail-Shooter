@@ -1,17 +1,18 @@
 class_name Snowball
 extends KinematicBody
 
-const PROJECTILE_SPEED = 10
+const PROJECTILE_SPEED = 40
 
 var target: Spatial
 
-func _ready() -> void:
-	pass
+var direction = null
 
 
 func _process(delta: float) -> void:
-	if target:
-		var collision = move_and_collide((target.global_transform.origin - self.global_transform.origin).normalized() * PROJECTILE_SPEED * delta)
+	if direction == null:
+		direction = (target.global_transform.origin - self.global_transform.origin).normalized()
+	else:
+		var collision = move_and_collide(direction * PROJECTILE_SPEED * delta)
 		if collision:
 			print("snowball hit something")
 			queue_free()

@@ -1,11 +1,12 @@
 class_name SantaPlayer
 extends KinematicBody
 
+signal santa_hit
 signal santa_coziness_updated
 
 const MAX_ROTATION_VALUE := 1.2
 
-const SNOWBALL_HIT_COZINESS_DECREASE := 5
+const SNOWBALL_HIT_COZINESS_DECREASE := 2
 
 const present_bullet: PackedScene = preload("res://src/player/present_projectile.tscn")
 
@@ -14,7 +15,7 @@ var coziness = 100
 onready var world = get_tree().get_nodes_in_group("world")[0]
 
 onready var camera_pivot: Spatial = $CameraPivot
-onready var projectile_spawn_pos: Spatial = $CameraPivot/ProjectileSpawnPosition
+onready var projectile_spawn_pos: Spatial = $CameraPivot/BFPG/ProjectileSpawnPosition
 onready var timer: Timer = $CameraPivot/Timer
 
 
@@ -40,4 +41,5 @@ func _on_Area_body_entered(body: Node) -> void:
 	if body is Snowball:
 		coziness -= SNOWBALL_HIT_COZINESS_DECREASE
 		emit_signal("santa_coziness_updated", coziness)
+		emit_signal("santa_hit", body.global_transform.origin)
 		body.queue_free()

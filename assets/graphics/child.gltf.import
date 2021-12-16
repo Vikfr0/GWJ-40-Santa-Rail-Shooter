@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/child.glb-8e8b70500122766a97b3be4cf7f5e5ae.scn"
+path="res://.import/child.gltf-ae72f4d704490328ea51307970ab4eaa.scn"
 
 [deps]
 
-source_file="res://assets/graphics/child.glb"
-dest_files=[ "res://.import/child.glb-8e8b70500122766a97b3be4cf7f5e5ae.scn" ]
+source_file="res://assets/graphics/child.gltf"
+dest_files=[ "res://.import/child.gltf-ae72f4d704490328ea51307970ab4eaa.scn" ]
 
 [params]
 
