@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/graphics/child.gltf" type="PackedScene" id=1]
+[ext_resource path="res://assets/graphics/child_model.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/enemy/child_enemy.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.72326
-height = 2.98852
+height = 1.23397
 
 [sub_resource type="CapsuleShape" id=2]
-radius = 0.842844
-height = 3.25054
+radius = 0.983724
+height = 1.46815
 
 [node name="KinematicBody" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.04369, 0 )
@@ -18,10 +18,10 @@ collision_mask = 12
 script = ExtResource( 2 )
 
 [node name="child" parent="." instance=ExtResource( 1 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.779954, 0 )
+transform = Transform( -1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0, -3.12687, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.783439, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.71064, 0 )
 shape = SubResource( 1 )
 
 [node name="Area" type="Area" parent="."]
@@ -29,7 +29,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.593866, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.9641, 0 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -37,6 +37,6 @@ wait_time = 3.0
 one_shot = true
 
 [node name="SnowballSpawnPosition" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03848, 0.71213, -1.04092 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.642653, -1.32204, -1.04092 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

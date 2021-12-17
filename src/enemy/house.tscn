@@ -9,7 +9,7 @@ extents = Vector3( 5.62996, 6.43013, 3.98593 )
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 8.16597, 6.04697, 6.51135 )
 
-[node name="House" type="StaticBody"]
+[node name="House" type="StaticBody" groups=["house"]]
 collision_layer = 8
 collision_mask = 15
 script = ExtResource( 2 )
