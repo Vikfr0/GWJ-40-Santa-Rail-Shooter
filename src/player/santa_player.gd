@@ -26,13 +26,15 @@ func _input(event: InputEvent) -> void:
 		camera_pivot.rotation.x = clamp(camera_pivot.rotation.x, -MAX_ROTATION_VALUE, MAX_ROTATION_VALUE)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed("shoot") and timer.is_stopped():
 		var projectile = present_bullet.instance()
 		projectile.rotation.y = self.rotation.y
 		projectile.rotation.x = camera_pivot.rotation.x
 		world.add_child(projectile)
 		projectile.global_transform.origin = projectile_spawn_pos.global_transform.origin
+		
+		$AnimationPlayer.play("gun_recoil")
 		timer.start()
 		
 

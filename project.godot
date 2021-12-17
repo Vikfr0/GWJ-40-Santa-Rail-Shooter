@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody",
 "class": "ChildEnemy",
 "language": "GDScript",
-"path": "res://src/enemy/child_enemy.gd"
+"path": "res://src/enemy/kid_enemy.gd"
 }, {
 "base": "KinematicBody",
 "class": "PresentProjectile",

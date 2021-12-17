@@ -1,0 +1,206 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/ui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/fonts/SourceSans3-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/ui/volume_slider.gd" type="Script" id=3]
+[ext_resource path="res://src/ui/mouse_sensitivity_slider.gd" type="Script" id=4]
+[ext_resource path="res://src/ui/screenshake_checkbox.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 128
+font_data = ExtResource( 2 )
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioSliders" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -215.0
+margin_top = -230.0
+margin_right = 215.0
+margin_bottom = 230.0
+custom_constants/separation = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="AudioSliders"]
+margin_right = 430.0
+margin_bottom = 136.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="AudioSliders/VBoxContainer5"]
+margin_right = 430.0
+margin_bottom = 92.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Master Volume"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="AudioSliders/VBoxContainer5"]
+margin_top = 96.0
+margin_right = 430.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 0, 40 )
+value = 50.0
+script = ExtResource( 3 )
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="AudioSliders"]
+margin_top = 160.0
+margin_right = 430.0
+margin_bottom = 272.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="AudioSliders/VBoxContainer3"]
+margin_right = 430.0
+margin_bottom = 92.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Music Volume"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="AudioSliders/VBoxContainer3"]
+margin_top = 96.0
+margin_right = 430.0
+margin_bottom = 112.0
+value = 75.0
+script = ExtResource( 3 )
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="AudioSliders"]
+margin_top = 296.0
+margin_right = 430.0
+margin_bottom = 432.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="AudioSliders/VBoxContainer4"]
+margin_right = 430.0
+margin_bottom = 92.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Voice Volume"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="AudioSliders/VBoxContainer4"]
+margin_top = 96.0
+margin_right = 430.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 0, 40 )
+value = 100.0
+script = ExtResource( 3 )
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="AudioSliders"]
+margin_top = 456.0
+margin_right = 430.0
+margin_bottom = 568.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="AudioSliders/VBoxContainer2"]
+margin_right = 430.0
+margin_bottom = 92.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Sounds Volume"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="AudioSliders/VBoxContainer2"]
+margin_top = 96.0
+margin_right = 430.0
+margin_bottom = 112.0
+value = 100.0
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -174.5
+margin_right = 174.5
+margin_bottom = 184.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "PAUSE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -104.0
+margin_right = 430.0
+margin_bottom = 104.0
+custom_constants/separation = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 430.0
+margin_bottom = 92.0
+text = "Gameplay:"
+
+[node name="MouseSensitivity" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 116.0
+margin_right = 430.0
+margin_bottom = 228.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/MouseSensitivity"]
+margin_right = 430.0
+margin_bottom = 92.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Mouse sensitivity"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/MouseSensitivity"]
+margin_top = 96.0
+margin_right = 430.0
+margin_bottom = 112.0
+value = 50.0
+script = ExtResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 252.0
+margin_right = 430.0
+margin_bottom = 352.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 4.0
+margin_right = 336.0
+margin_bottom = 96.0
+text = "Screenshake:"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
+margin_left = 340.0
+margin_right = 380.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 40, 40 )
+script = ExtResource( 5 )
+
+[connection signal="value_changed" from="VBoxContainer/MouseSensitivity/HSlider" to="VBoxContainer/MouseSensitivity/HSlider" method="_on_HSlider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/CheckBox" to="VBoxContainer/HBoxContainer/CheckBox" method="_on_CheckBox_toggled"]

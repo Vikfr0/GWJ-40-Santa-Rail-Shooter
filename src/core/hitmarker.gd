@@ -10,7 +10,6 @@ func _ready() -> void:
 	player.connect("santa_hit", self, "_display_hitmarker")
 	yield(get_tree(),"idle_frame")
 	center_rect = self.rect_global_position
-	print(center_rect)
 
 
 func _display_hitmarker(projectile_pos: Vector3) -> void:
