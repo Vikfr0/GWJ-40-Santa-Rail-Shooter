@@ -20,7 +20,7 @@ radial_segments = 8
 rings = 4
 
 [sub_resource type="BoxShape" id=7]
-extents = Vector3( 2.01663, 0.541163, 4.5503 )
+extents = Vector3( 2.01663, 0.144203, 4.5503 )
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -102,7 +102,7 @@ collision_mask = 4
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.235857, 0.542204 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00507402, 0.580259, -3.02497 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00507402, 0.252493, -3.02497 )
 shape = SubResource( 7 )
 
 [node name="Santa" type="KinematicBody" parent="." groups=["player"]]
@@ -124,7 +124,10 @@ transform = Transform( 1, 0, 0, 0, 0.995883, -0.09065, 0, 0.09065, 0.995883, 0.6
 transform = Transform( 1, 0, -2.98023e-08, 2.08616e-07, 1, 0, 1.19209e-07, 1.49012e-08, 1, 0.699925, -0.491603, -2.49196 )
 
 [node name="Camera" type="Camera" parent="Santa/CameraPivot"]
+current = true
 fov = 80.0
+near = 0.01
+far = 8192.0
 script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="Santa/CameraPivot"]
@@ -141,5 +144,9 @@ shape = SubResource( 5 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Santa"]
 anims/RESET = SubResource( 8 )
 anims/gun_recoil = SubResource( 6 )
+
+[node name="OuchSound" type="AudioStreamPlayer" parent="Santa"]
+volume_db = -3.0
+bus = "Sounds"
 
 [connection signal="body_entered" from="Santa/Area" to="Santa" method="_on_Area_body_entered"]

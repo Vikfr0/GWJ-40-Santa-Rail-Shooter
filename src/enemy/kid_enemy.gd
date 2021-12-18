@@ -12,7 +12,6 @@ const snowball = preload("res://src/enemy/snowball.tscn")
 onready var world = get_tree().get_nodes_in_group("world")[0]
 onready var player : KinematicBody = get_tree().get_nodes_in_group("player")[0]
 onready var home : Spatial = get_parent().get_parent()
-onready var navigation: Navigation = get_tree().get_nodes_in_group("navigation")[0]
 
 onready var model: Spatial = $kid
 onready var snowball_spawn_pos: Spatial = $SnowballSpawnPosition

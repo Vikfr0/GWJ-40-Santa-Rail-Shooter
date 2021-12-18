@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/jingle.ogg-d3cf79941e3d429fcfaae6dfefe85f64.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/jingle.ogg"
+dest_files=[ "res://.import/jingle.ogg-d3cf79941e3d429fcfaae6dfefe85f64.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

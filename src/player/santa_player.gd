@@ -7,6 +7,7 @@ signal santa_coziness_updated
 const MAX_ROTATION_VALUE := 1.2
 
 const SNOWBALL_HIT_COZINESS_DECREASE := 2
+const KID_RETURNED_COZINESS_INCREASE := 5
 
 const present_bullet: PackedScene = preload("res://src/player/present_projectile.tscn")
 
@@ -17,6 +18,11 @@ onready var world = get_tree().get_nodes_in_group("world")[0]
 onready var camera_pivot: Spatial = $CameraPivot
 onready var projectile_spawn_pos: Spatial = $CameraPivot/ProjectileSpawnPosition
 onready var timer: Timer = $CameraPivot/Timer
+
+
+func _ready():
+	for house in get_tree().get_nodes_in_group("house"):
+		house.connect("child_returned", self, "_add_coziness")
 
 
 func _input(event: InputEvent) -> void:
@@ -39,9 +45,27 @@ func _process(_delta: float) -> void:
 		
 
 
+func _add_coziness() -> void:
+	coziness += KID_RETURNED_COZINESS_INCREASE
+	if coziness > 100:
+		coziness = 100
+	emit_signal("santa_coziness_updated")
+
+
 func _on_Area_body_entered(body: Node) -> void:
 	if body is Snowball:
 		coziness -= SNOWBALL_HIT_COZINESS_DECREASE
-		emit_signal("santa_coziness_updated", coziness)
+		
 		emit_signal("santa_hit", body.global_transform.origin)
+		
+		_play_ouch_audio()
+		
+		if coziness <= 0:
+			emit_signal("game_over")
+		else:
+			emit_signal("santa_coziness_updated", coziness)
 		body.queue_free()
+
+
+func _play_ouch_audio() -> void:
+	$OuchSound.play()

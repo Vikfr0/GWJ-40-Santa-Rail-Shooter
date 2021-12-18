@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/enemy/house.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/player/debug)santa_player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/terrain/terrain.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/enemy/kid_spawner.gd" type="Script" id=4]
+[ext_resource path="res://src/terrain/terrain.gd" type="Script" id=5]
+[ext_resource path="res://src/core/rail.gd" type="Script" id=6]
+[ext_resource path="res://assets/graphics/textures/sky.png" type="Texture" id=7]
+[ext_resource path="res://src/terrain/terrain_noise.tres" type="OpenSimplexNoise" id=8]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 288.411, 114.971, -68.8133, 0, 0, 0, 0, 0, 0, 99.912, 69.3931, -41.8045, 0, 0, 0, 0, 0, 0, 62.504, 37.9227, -49.97, 0, 0, 0, 0, 0, 0, 33.1199, 16.9977, -65.9731, 0, 0, 0, 0, 0, 0, 16.2323, 10.8759, -75.9891, 0, 0, 0, 0, 0, 0, 5.83799, 15.1126, -99.3811, 0, 0, 0, 0, 0, 0, -5.26133, 19.4975, -106.01, 0, 0, 0, 0, 0, 0, -30.218, 25.4444, -107.135, 0, 0, 0, 0, 0, 0, -64.2818, 18.452, -107.364, 0, 0, 0, 0, 0, 0, -97.0988, 8.13074, -110.04, 0, 0, 0, 0, 0, 0, -123.425, 4.15815, -107.565, 0, 0, 0, 0, 0, 0, -141.063, 10.5682, -108.295, 0, 0, 0, 0, 0, 0, -157.917, 4.91702, -87.8775, 0, 0, 0, 0, 0, 0, -151.109, 10.5986, -71.172, 0, 0, 0, 0, 0, 0, -123.788, 8.36093, -67.8674, 0, 0, 0, 0, 0, 0, -104.586, 12.7809, -56.0103, 0, 0, 0, 0, 0, 0, -82.4041, 3.96756, -36.7681, 0, 0, 0, 0, 0, 0, -61.226, 4.45802, -28.2893, 0, 0, 0, 0, 0, 0, -46.7374, 2.66543, -14.56, 0, 0, 0, 0, 0, 0, -45.874, 7.14315, 3.08167, 0, 0, 0, 0, 0, 0, -52.587, 4.78934, 19.1395, 0, 0, 0, 0, 0, 0, -63.7351, 4.80644, 34.9964, 0, 0, 0, 0, 0, 0, -71.6207, 5.91803, 57.5002, 0, 0, 0, 0, 0, 0, -71.5058, 14.2174, 90.3328, 0, 0, 0, 0, 0, 0, -77.9388, 29.6907, 108.855, 0, 0, 0, 0, 0, 0, -90.9649, 38.3838, 138.098, 0, 0, 0, 0, 0, 0, -105.427, 42.7416, 109.943, 0, 0, 0, 0, 0, 0, -106.362, 52.4202, 91.8704, 0, 0, 0, 0, 0, 0, -66.2997, 61.2973, 104.312, 0, 0, 0, 0, 0, 0, -14.9133, 44.5803, 85.52, 0, 0, 0, 0, 0, 0, -1.45927, 29.8964, 92.6824, 0, 0, 0, 0, 0, 0, 21.7264, 15.793, 89.3283, 0, 0, 0, 0, 0, 0, 40.9315, 1.15233, 82.9045, 0, 0, 0, 0, 0, 0, 68.0681, 1.58655, 77.6375, 0, 0, 0, 0, 0, 0, 60.0715, 0.699564, 92.5976, 0, 0, 0, 0, 0, 0, 77.3658, 1.84258, 108.461, 0, 0, 0, 0, 0, 0, 92.2518, 0.78244, 123.796, 0, 0, 0, 0, 0, 0, 111.659, 0.0201111, 126.432, 0, 0, 0, 0, 0, 0, 139.933, 0.0201111, 121.027, 0, 0, 0, 0, 0, 0, 171.118, 0.0201111, 103.979, 0, 0, 0, 0, 0, 0, 172.365, 0.0201111, 79.8625, 0, 0, 0, 0, 0, 0, 174.353, 0.0201111, 48.1454, 0, 0, 0, 0, 0, 0, 181.977, 0.0201111, 15.8913, 0, 0, 0, 0, 0, 0, 206.607, 0.0201111, -35.1288, 0, 0, 0, 0, 0, 0, 211.557, 0.0201111, -64.9683, 0, 0, 0, 0, 0, 0, 206.567, 0.0201111, -88.8525, 0, 0, 0, 0, 0, 0, 188.029, 0.0201111, -101.329, 0, 0, 0, 0, 0, 0, 163.076, 0.0201111, -107.746, 0, 0, 0, 0, 0, 0, 136.696, 0.0201111, -114.876, 0, 0, 0, 0, 0, 0, 115.664, 0.0201111, -107.746, 0, 0, 0, 0, 0, 0, 108.338, -0.993675, -94.3515, 0, 0, 0, 0, 0, 0, 120.654, 0.0201111, -82.4359, 0, 0, 0, 0, 0, 0, 134.201, 0.0201111, -67.1071, 0, 0, 0, 0, 0, 0, 123.863, 0.0201111, -49.996, 0, 0, 0, 0, 0, 0, 110.411, 0.0201111, -32.8193, 0, 0, 0, 0, 0, 0, 101.679, 0.0201111, -12.8609, 0, 0, 0, 0, 0, 0, 93.1237, 0.0201111, 3.98772, 0, 0, 0, 0, 0, 0, 87.6225, 0.0201111, 14.0734, 0, 0, 0, 0, 0, 0, 77.5368, 0.0201111, 0.320218, 0, 0, 0, 0, 0, 0, 72.2728, 3.52973, -17.8758, 0, 0, 0, 0, 0, 0, 64.0182, 11.0843, -10.7483, 0, 0, 0, 0, 0, 0, 48.4259, 11.6083, -19.1156, 0, 0, 0, 0, 0, 0, 29.9011, 7.51306, -20.9289, 0, 0, 0, 0, 0, 0, 4.83606, 19.4036, 36.3871, 0, 0, 0, 0, 0, 0, -12.1937, 20.6382, 47.2398, 0, 0, 0, 0, 0, 0, -25.7984, 34.9129, 52.7812, 0, 0, 0, 0, 0, 0, -45.0707, 62.7329, 38.1771, 0, 0, 0, 0, 0, 0, -191.698, 106.353, 2.38224 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="PanoramaSky" id=5]
+panorama = ExtResource( 7 )
+
+[sub_resource type="Environment" id=4]
+background_mode = 2
+background_sky = SubResource( 5 )
+fog_enabled = true
+fog_color = Color( 0.615686, 0.603922, 0.611765, 1 )
+fog_sun_color = Color( 0.85098, 0.811765, 0.733333, 1 )
+fog_sun_amount = 1.0
+fog_depth_end = 439.9
+fog_transmit_enabled = true
+fog_height_min = 1.0
+fog_height_max = 8.0
+tonemap_mode = 3
+tonemap_exposure = 0.8
+
+[node name="Game" type="Node"]
+
+[node name="terrain" type="StaticBody" parent="." instance=ExtResource( 3 )]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 5 )
+terrain_size = Vector2( 512, 512 )
+gen_noise = ExtResource( 8 )
+max_terrain_height = 2.5
+
+[node name="Path" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96011, -2.45058, -16.5877 )
+curve = SubResource( 1 )
+
+[node name="Rail" type="PathFollow" parent="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 288.411, 114.971, -68.8133 )
+rotation_mode = 0
+script = ExtResource( 6 )
+
+[node name="DebugSanta" type="Spatial" parent="Path" instance=ExtResource( 2 )]
+
+[node name="House" type="StaticBody" parent="." groups=["house"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6392, 0.0524254, -75.1197 )
+collision_layer = 8
+collision_mask = 15
+script = ExtResource( 4 )
+
+[node name="House3" type="StaticBody" parent="." groups=["house"] instance=ExtResource( 1 )]
+transform = Transform( 0.0263689, 0, -0.999652, 0, 1, 0, 0.999652, 0, 0.0263689, -135.814, 2.28882e-05, -104.77 )
+collision_layer = 8
+collision_mask = 15
+script = ExtResource( 4 )
+
+[node name="House2" type="StaticBody" parent="." groups=["house"] instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.945, 1.52588e-05, -114.424 )
+collision_layer = 8
+collision_mask = 15
+script = ExtResource( 4 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 76.5628, 1.17394 )
+light_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+directional_shadow_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
