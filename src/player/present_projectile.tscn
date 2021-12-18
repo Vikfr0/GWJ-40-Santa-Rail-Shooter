@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/graphics/present.glb" type="PackedScene" id=1]
 [ext_resource path="res://src/player/present_projectile.gd" type="Script" id=2]
@@ -35,8 +35,41 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -45 ), Vector3( 0, 0, 45 ), Vector3( 0, 0, 0 ) ]
 }
 
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 0, 0, 1, 0, 1, 0.52549, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 5
+emission_ring_radius = 0.15
+emission_ring_inner_radius = 0.1
+emission_ring_height = 1.0
+direction = Vector3( 0, 0, 1 )
+spread = 15.0
+gravity = Vector3( 0, -1, 0 )
+initial_velocity = 4.0
+scale_curve = SubResource( 8 )
+color = Color( 1, 0.270588, 0.270588, 1 )
+color_ramp = SubResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=12]
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 12 )
+size = Vector3( 0.18, 0.18, 0.18 )
+
 [node name="PresentProjectile" type="KinematicBody"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 collision_layer = 8
 collision_mask = 14
 script = ExtResource( 2 )
@@ -54,4 +87,8 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0258176, 0.272853, 0 )
 autoplay = "scale_up"
 anims/scale_up = SubResource( 2 )
 
-[node name="Particles" type="Particles" parent="."]
+[node name="TrailParticles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.307355 )
+randomness = 0.8
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 6 )

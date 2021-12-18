@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/player/santa_player.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/BFPG.glb" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/player/Camera.gd" type="Script" id=4]
 [ext_resource path="res://src/levels/environment.tres" type="Environment" id=5]
 [ext_resource path="res://assets/audio/sounds/ow.ogg" type="AudioStream" id=6]
+[ext_resource path="res://src/core/random_audio_player.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 5
@@ -148,17 +149,19 @@ shape = SubResource( 5 )
 anims/RESET = SubResource( 8 )
 anims/gun_recoil = SubResource( 6 )
 
-[node name="OuchSound" type="AudioStreamPlayer" parent="Santa"]
+[node name="RandomAudioPlayer" parent="Santa" instance=ExtResource( 7 )]
+
+[node name="OiSound" type="AudioStreamPlayer" parent="Santa/RandomAudioPlayer"]
 stream = ExtResource( 6 )
 volume_db = -3.0
 bus = "Sounds"
 
-[node name="OwSound" type="AudioStreamPlayer" parent="Santa"]
+[node name="OwSound" type="AudioStreamPlayer" parent="Santa/RandomAudioPlayer"]
 stream = ExtResource( 6 )
 volume_db = -3.0
 bus = "Sounds"
 
-[node name="OiSound" type="AudioStreamPlayer" parent="Santa"]
+[node name="OuchSound" type="AudioStreamPlayer" parent="Santa/RandomAudioPlayer"]
 stream = ExtResource( 6 )
 volume_db = -3.0
 bus = "Sounds"

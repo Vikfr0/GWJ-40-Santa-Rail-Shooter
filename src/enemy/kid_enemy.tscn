@@ -4,7 +4,7 @@
 [ext_resource path="res://src/enemy/kid_enemy.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.878141
+radius = 0.643743
 height = 1.23397
 
 [sub_resource type="CapsuleShape" id=2]
@@ -13,7 +13,7 @@ height = 1.46815
 
 [node name="Kid" type="KinematicBody"]
 collision_layer = 2
-collision_mask = 12
+collision_mask = 14
 script = ExtResource( 2 )
 
 [node name="kid" parent="." instance=ExtResource( 1 )]
@@ -26,7 +26,7 @@ shape = SubResource( 1 )
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0594687, 0 )
 collision_layer = 2
-collision_mask = 4
+collision_mask = 12
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.40982, 0 )

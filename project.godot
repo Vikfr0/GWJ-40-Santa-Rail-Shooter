@@ -45,6 +45,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Settings="*res://src/core/Settings.gd"
+Random="*res://src/core/Random.gd"
 
 [display]
 

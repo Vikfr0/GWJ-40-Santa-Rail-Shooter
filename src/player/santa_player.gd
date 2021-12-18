@@ -68,4 +68,4 @@ func _on_Area_body_entered(body: Node) -> void:
 
 
 func _play_ouch_audio() -> void:
-	$OuchSound.play()
+	$RandomAudioPlayer.play_random_sound()
