@@ -1,12 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://src/core/audio_player.gd" type="Script" id=10]
+[ext_resource path="res://assets/audio/voice/intro dialogue.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/fonts/SourceSans3-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/ui/settings.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/core/world.gd" type="Script" id=11]
-[ext_resource path="res://assets/audio/voice/yohoho merry christmas.ogg" type="AudioStream" id=12]
-[ext_resource path="res://assets/audio/music/Djengle Bells.ogg" type="AudioStream" id=13]
 [ext_resource path="res://assets/graphics/textures/logo_big_top.png" type="Texture" id=14]
 [ext_resource path="res://assets/graphics/textures/logo_big_bot.png" type="Texture" id=15]
-[ext_resource path="res://assets/audio/voice/Santa wake up.ogg" type="AudioStream" id=16]
 [ext_resource path="res://src/ui/theme.tres" type="Theme" id=17]
 [ext_resource path="res://assets/audio/music/jingle.ogg" type="AudioStream" id=18]
 
@@ -84,6 +83,35 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 640, -186 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("LoadingLabel:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "fade_in_loading"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("LoadingLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.7, 4.3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=11]
 resource_name = "fade_in_out_pause_label"
@@ -103,7 +131,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=12]
 resource_name = "fade_in_out_sound_on_label"
-length = 4.0
+length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Intro/SoundOnLabel:modulate")
 tracks/0/interp = 1
@@ -111,7 +139,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 3.5, 4 ),
+"times": PoolRealArray( 0, 0.5, 5.5, 5.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -210,10 +238,82 @@ tracks/0/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("WakeUpLabel:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GrmblblnLabel:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SleptThroughLabel:percent_visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("OHFLabel:percent_visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("OHFLabel:rect_rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("OHFLabel:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 388.5, 821 ) ]
+}
 
 [sub_resource type="Animation" id=13]
 resource_name = "dialogue_intro"
-length = 20.0
+length = 14.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("SantaWakeUp:playing")
 tracks/0/interp = 1
@@ -221,14 +321,107 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( -0.1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 13.4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WakeUpLabel:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 1.2, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.35, 0.35, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("GrmblblnLabel:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.5, 3.7, 5.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.35, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SleptThroughLabel:percent_visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 5.8, 7.7, 8, 9.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.56, 0.56, 1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("OHFLabel:percent_visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 10.4, 11 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("OHFLabel:rect_rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 10.4, 11, 12.9 ),
+"transitions": PoolRealArray( 1, 0.420448, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1080.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("OHFLabel:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 10.4, 11, 12.9 ),
+"transitions": PoolRealArray( 1, 0.420449, 1 ),
+"update": 0,
+"values": [ Vector2( 388.5, 821 ), Vector2( 388.5, 821 ), Vector2( 1364, -223 ) ]
+}
+
+[sub_resource type="DynamicFont" id=17]
+size = 96
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.105882, 0.105882, 0.105882, 1 ) ]
 }
 
 [sub_resource type="Animation" id=6]
-resource_name = "fade_out"
+resource_name = "fade_in_game"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -239,12 +432,38 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+"values": [ Color( 0.0941176, 0.0941176, 0.0941176, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../LoadingLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../Intro")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
 }
 
 [sub_resource type="Animation" id=7]
 resource_name = "intro"
-length = 20.0
+length = 36.0
 tracks/0/type = "animation"
 tracks/0/path = NodePath("../Intro/LogoAnimationPlayer")
 tracks/0/interp = 1
@@ -252,8 +471,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"clips": PoolStringArray( "fade_in_out_sound_on_label", "logo_intro", "fade_out_logo", "fade_in_out_pause_label" ),
-"times": PoolRealArray( 0, 4.5, 8.1, 10 )
+"clips": PoolStringArray( "fade_in_out_sound_on_label", "logo_intro", "fade_out_logo", "fade_in_out_pause_label", "fade_in_loading" ),
+"times": PoolRealArray( 0, 8.2, 11.8, 13.7, 34.4 )
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("../../Intro/IntroAnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "dialogue_intro" ),
+"times": PoolRealArray( 20.3 )
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 35 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "load_game"
+} ]
 }
 
 [node name="World" type="Node" groups=["world"]]
@@ -269,7 +512,7 @@ __meta__ = {
 [node name="BlackScreenFade" type="ColorRect" parent="GUI"]
 margin_right = 1920.0
 margin_bottom = 1080.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.105882, 0.105882, 0.105882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -282,13 +525,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -567.0
+margin_left = -726.5
 margin_top = -46.0
-margin_right = 567.0
+margin_right = 726.5
 margin_bottom = 46.0
 theme = ExtResource( 17 )
-text = "Better experienced with sound on."
+text = "Best experienced with sound on, the game is voiced-over."
 align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -296,9 +540,9 @@ __meta__ = {
 [node name="LogoBot" type="TextureRect" parent="GUI/Intro"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -320.0
+margin_left = 640.0
 margin_top = -186.0
-margin_right = 320.0
+margin_right = 1280.0
 margin_bottom = -58.0
 texture = ExtResource( 15 )
 __meta__ = {
@@ -310,10 +554,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -320.0
-margin_top = 50.0
-margin_right = 320.0
-margin_bottom = 178.0
+margin_left = 640.0
+margin_top = 1130.0
+margin_right = 1280.0
+margin_bottom = 1258.0
 texture = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -321,11 +565,13 @@ __meta__ = {
 
 [node name="AudioJingle" type="AudioStreamPlayer" parent="GUI/Intro"]
 stream = ExtResource( 18 )
+volume_db = 6.0
 bus = "Music"
 
 [node name="LogoAnimationPlayer" type="AnimationPlayer" parent="GUI/Intro"]
 root_node = NodePath("../..")
 anims/RESET = SubResource( 9 )
+anims/fade_in_loading = SubResource( 16 )
 anims/fade_in_out_pause_label = SubResource( 11 )
 anims/fade_in_out_sound_on_label = SubResource( 12 )
 anims/fade_out_logo = SubResource( 10 )
@@ -349,33 +595,114 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioPlayer" type="Node" parent="."]
-script = ExtResource( 10 )
-
-[node name="VoicePlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
-stream = ExtResource( 12 )
-volume_db = -2.972
-bus = "Voice"
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="AudioPlayer"]
-stream = ExtResource( 13 )
-volume_db = -6.537
-bus = "Music"
+[node name="LoadingLabel" type="Label" parent="GUI"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -410.0
+margin_top = -46.0
+margin_right = 410.0
+margin_bottom = 46.0
+theme = ExtResource( 17 )
+text = "...Loading the game, please wait..."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Intro" type="Node" parent="."]
 
 [node name="SantaWakeUp" type="AudioStreamPlayer" parent="Intro"]
-stream = ExtResource( 16 )
+stream = ExtResource( 1 )
 bus = "Voice"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Intro"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
+[node name="IntroAnimationPlayer" type="AnimationPlayer" parent="Intro"]
 anims/RESET = SubResource( 14 )
 anims/dialogue_intro = SubResource( 13 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="WakeUpLabel" type="Label" parent="Intro"]
+anchor_left = 0.5
+anchor_right = 0.508
+margin_left = -293.0
+margin_top = 128.0
+margin_right = 293.0
+margin_bottom = 220.0
+theme = ExtResource( 17 )
+text = "Santa! Santa, wake up!"
+align = 1
+valign = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GrmblblnLabel" type="Label" parent="Intro"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -511.5
+margin_top = -198.0
+margin_right = 511.5
+margin_bottom = -106.0
+theme = ExtResource( 17 )
+text = "Grbmblnb... What's going on, what's up?"
+align = 1
+valign = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SleptThroughLabel" type="Label" parent="Intro"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -571.5
+margin_top = 18.0
+margin_right = 571.5
+margin_bottom = 205.0
+theme = ExtResource( 17 )
+text = "You slept through the night of Christmas Eve!
+Everyone is waiting for their gifts!"
+align = 1
+valign = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OHFLabel" type="Label" parent="Intro"]
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 388.5
+margin_top = 821.0
+margin_right = 1531.5
+margin_bottom = 1008.0
+rect_pivot_offset = Vector2( 571, 93 )
+theme = ExtResource( 17 )
+custom_fonts/font = SubResource( 17 )
+text = "OH F...(udge)!"
+align = 1
+valign = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="MasterAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../GUI/BlackScreenFade")
 autoplay = "intro"
-anims/fade_out = SubResource( 6 )
+anims/RESET = SubResource( 15 )
+anims/fade_in_game = SubResource( 6 )
 anims/intro = SubResource( 7 )

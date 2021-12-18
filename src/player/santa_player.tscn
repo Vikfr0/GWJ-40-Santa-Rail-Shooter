@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://src/player/santa_player.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/BFPG.glb" type="PackedScene" id=2]
 [ext_resource path="res://assets/graphics/sleigh.glb" type="PackedScene" id=3]
 [ext_resource path="res://src/player/Camera.gd" type="Script" id=4]
+[ext_resource path="res://src/levels/environment.tres" type="Environment" id=5]
+[ext_resource path="res://assets/audio/sounds/ow.ogg" type="AudioStream" id=6]
 
 [sub_resource type="ParticlesMaterial" id=3]
 emission_shape = 5
@@ -106,7 +108,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00507402, 0.252493, -3.0249
 shape = SubResource( 7 )
 
 [node name="Santa" type="KinematicBody" parent="." groups=["player"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32638, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24149, 0 )
 collision_mask = 4
 script = ExtResource( 1 )
 
@@ -121,9 +123,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.73583, 0 )
 transform = Transform( 1, 0, 0, 0, 0.995883, -0.09065, 0, 0.09065, 0.995883, 0.693952, -1.14752, -1.16767 )
 
 [node name="ProjectileSpawnPosition" type="Spatial" parent="Santa/CameraPivot"]
-transform = Transform( 1, 0, -2.98023e-08, 2.08616e-07, 1, 0, 1.19209e-07, 1.49012e-08, 1, 0.699925, -0.491603, -2.49196 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.699925, -0.491603, -2.49196 )
 
 [node name="Camera" type="Camera" parent="Santa/CameraPivot"]
+environment = ExtResource( 5 )
 current = true
 fov = 80.0
 near = 0.01
@@ -146,7 +149,22 @@ anims/RESET = SubResource( 8 )
 anims/gun_recoil = SubResource( 6 )
 
 [node name="OuchSound" type="AudioStreamPlayer" parent="Santa"]
+stream = ExtResource( 6 )
 volume_db = -3.0
 bus = "Sounds"
+
+[node name="OwSound" type="AudioStreamPlayer" parent="Santa"]
+stream = ExtResource( 6 )
+volume_db = -3.0
+bus = "Sounds"
+
+[node name="OiSound" type="AudioStreamPlayer" parent="Santa"]
+stream = ExtResource( 6 )
+volume_db = -3.0
+bus = "Sounds"
+
+[node name="OmniLight" type="OmniLight" parent="Santa"]
+light_color = Color( 1, 0.843137, 0.592157, 1 )
+omni_range = 8.81864
 
 [connection signal="body_entered" from="Santa/Area" to="Santa" method="_on_Area_body_entered"]

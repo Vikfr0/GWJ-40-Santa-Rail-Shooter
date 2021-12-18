@@ -1,9 +1,9 @@
 shader_type spatial;
 
 
-uniform float avg_snow_height = .1;
+uniform float avg_snow_height = .4;
 uniform float min_snow_height = .05;
-uniform float max_snow_variance = .1;
+uniform float max_snow_variance = .15;
 
 uniform float zero_out = .2;
 uniform sampler2D snow_height_map;

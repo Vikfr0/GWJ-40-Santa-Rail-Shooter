@@ -9,9 +9,9 @@ var max_coziness = 3
 
 const snowball = preload("res://src/enemy/snowball.tscn")
 
-onready var world = get_tree().get_nodes_in_group("world")[0]
+onready var world = get_tree().get_nodes_in_group("game")[0]
 onready var player : KinematicBody = get_tree().get_nodes_in_group("player")[0]
-onready var home : Spatial = get_parent().get_parent()
+onready var home : Spatial = get_parent().get_parent().get_parent()
 
 onready var model: Spatial = $kid
 onready var snowball_spawn_pos: Spatial = $SnowballSpawnPosition
@@ -57,6 +57,7 @@ func _process(_delta: float):
 		child_pos.y = 0
 		var direction = (home_pos - child_pos)
 		var _collision = move_and_slide(direction.normalized() * MOVE_SPEED)
+		model.start_run_animation()
 
 
 func _start_throwing_snowball():

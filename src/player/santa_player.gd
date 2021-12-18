@@ -13,7 +13,7 @@ const present_bullet: PackedScene = preload("res://src/player/present_projectile
 
 var coziness = 100
 
-onready var world = get_tree().get_nodes_in_group("world")[0]
+onready var game_world = get_tree().get_nodes_in_group("game")[0]
 
 onready var camera_pivot: Spatial = $CameraPivot
 onready var projectile_spawn_pos: Spatial = $CameraPivot/ProjectileSpawnPosition
@@ -35,9 +35,9 @@ func _input(event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("shoot") and timer.is_stopped():
 		var projectile = present_bullet.instance()
-		projectile.rotation.y = self.rotation.y
+		projectile.rotation.y = self.rotation.y + get_parent().get_parent().rotation.y
 		projectile.rotation.x = camera_pivot.rotation.x
-		world.add_child(projectile)
+		game_world.add_child(projectile)
 		projectile.global_transform.origin = projectile_spawn_pos.global_transform.origin
 		
 		$AnimationPlayer.play("gun_recoil")

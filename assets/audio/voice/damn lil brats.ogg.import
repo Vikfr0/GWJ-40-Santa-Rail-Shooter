@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/damn lil brats.ogg-861b6e366c2f3d93e2fe43a035a1bbfb.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/voice/damn lil brats.ogg"
+dest_files=[ "res://.import/damn lil brats.ogg-861b6e366c2f3d93e2fe43a035a1bbfb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

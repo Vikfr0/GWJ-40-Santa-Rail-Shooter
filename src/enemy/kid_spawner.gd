@@ -4,15 +4,15 @@ signal child_returned
 
 var max_child_spawned = 3
 var child_spawned = 0
+
 export var spawn_start_delay := 3.0
-export var spawn_delay := 6.0
+export var spawn_delay := 10.0
 
 const child_enemy = preload("res://src/enemy/kid_enemy.tscn")
 
-onready var world = get_tree().get_nodes_in_group("world")[0]
 
-onready var timer = $Timer
-onready var spawn_pos = $ChildSpawnPosition
+onready var timer = $ChildMechanics/Timer
+onready var spawn_pos = $ChildMechanics/ChildSpawnPosition
 
 func _ready() -> void:
 	timer.start(spawn_start_delay)
@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func _spawn_child_enemy():
 	spawn_pos.add_child(child_enemy.instance())
-	max_child_spawned += 1
+	child_spawned += 1
 	
 	timer.start(spawn_delay)
 

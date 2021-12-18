@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hohoho merry christmas.ogg-c896a7c3bb63630cd6586d572bc63883.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/voice/hohoho merry christmas.ogg"
+dest_files=[ "res://.import/hohoho merry christmas.ogg-c896a7c3bb63630cd6586d572bc63883.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

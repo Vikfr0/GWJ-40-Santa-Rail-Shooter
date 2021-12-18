@@ -6,13 +6,12 @@ var mouse_sensitivity := 0.001 # rads / pixel
 
 # You can adjust the starting values here while debugging so the music/sounds don't annoy you every time
 # the _ready() will set those volumes so you don't have to go through the options. 
-# Can be useful to load preferences from a file too (not necessary for the jam)
-var _buses_volumes = {"Master": 0.5, "Music": 0.75, "Sounds": 1, "Voice": 1}
+var _buses_volumes = {"Master": 0.5, "Music": 1, "Sounds": 1, "Voice": 1}
 
 
 
-func set_mouse_sentivity(percentage: int) -> void:
-	mouse_sensitivity = 0.0005 * (1 + (percentage / 25))
+func set_mouse_sentivity(percentage: float) -> void:
+	mouse_sensitivity = 0.0005 * (1 + (percentage / 25.0))
 
 
 func get_volume(bus_name: String) -> float:

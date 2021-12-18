@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/ui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/fonts/SourceSans3-VariableFont_wght.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/ui/volume_slider.gd" type="Script" id=3]
 [ext_resource path="res://src/ui/mouse_sensitivity_slider.gd" type="Script" id=4]
 [ext_resource path="res://src/ui/screenshake_checkbox.gd" type="Script" id=5]
+[ext_resource path="res://src/ui/settings.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -15,9 +16,19 @@ size = 128
 font_data = ExtResource( 2 )
 
 [node name="Settings" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.329412 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -27,10 +38,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -215.0
-margin_top = -230.0
-margin_right = 215.0
-margin_bottom = 230.0
+margin_left = 353.0
+margin_top = -225.0
+margin_right = 783.0
+margin_bottom = 343.0
 custom_constants/separation = 24
 __meta__ = {
 "_edit_use_anchors_": false
@@ -56,7 +67,9 @@ margin_top = 96.0
 margin_right = 430.0
 margin_bottom = 136.0
 rect_min_size = Vector2( 0, 40 )
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 0.5
 script = ExtResource( 3 )
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="AudioSliders"]
@@ -79,8 +92,11 @@ align = 1
 margin_top = 96.0
 margin_right = 430.0
 margin_bottom = 112.0
-value = 75.0
+max_value = 1.0
+step = 0.01
+value = 0.75
 script = ExtResource( 3 )
+bus_name = "Music"
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="AudioSliders"]
 margin_top = 296.0
@@ -103,8 +119,11 @@ margin_top = 96.0
 margin_right = 430.0
 margin_bottom = 136.0
 rect_min_size = Vector2( 0, 40 )
-value = 100.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 script = ExtResource( 3 )
+bus_name = "Voice"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="AudioSliders"]
 margin_top = 456.0
@@ -126,8 +145,11 @@ align = 1
 margin_top = 96.0
 margin_right = 430.0
 margin_bottom = 112.0
-value = 100.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 script = ExtResource( 3 )
+bus_name = "Sounds"
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -145,9 +167,10 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -104.0
-margin_right = 430.0
-margin_bottom = 104.0
+margin_left = 329.0
+margin_top = -212.0
+margin_right = 759.0
+margin_bottom = 140.0
 custom_constants/separation = 24
 __meta__ = {
 "_edit_use_anchors_": false
@@ -200,6 +223,7 @@ margin_left = 340.0
 margin_right = 380.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 40, 40 )
+pressed = true
 script = ExtResource( 5 )
 
 [connection signal="value_changed" from="VBoxContainer/MouseSensitivity/HSlider" to="VBoxContainer/MouseSensitivity/HSlider" method="_on_HSlider_value_changed"]

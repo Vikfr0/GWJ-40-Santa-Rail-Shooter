@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ow pebbles in that one.ogg-bc9e70f2135be99d54391eb848c5d673.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/voice/ow pebbles in that one.ogg"
+dest_files=[ "res://.import/ow pebbles in that one.ogg-bc9e70f2135be99d54391eb848c5d673.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
