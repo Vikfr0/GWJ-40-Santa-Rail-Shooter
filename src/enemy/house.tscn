@@ -7,7 +7,7 @@
 extents = Vector3( 5.62996, 6.43013, 3.98593 )
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 8.16597, 6.04697, 6.51135 )
+extents = Vector3( 7.35846, 6.04697, 5.35489 )
 
 [node name="House" type="StaticBody" groups=["house"]]
 collision_layer = 8
@@ -19,38 +19,40 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0808218, 6.38203, 0 )
 shape = SubResource( 1 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.19772, 3.85946, 4.23954 )
-light_color = Color( 1, 0.913725, 0.647059, 1 )
-omni_range = 1.85978
-
-[node name="OmniLight2" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33953, 3.85946, 4.23954 )
-light_color = Color( 1, 0.913725, 0.647059, 1 )
-omni_range = 1.85978
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1294, 4.89004, 4.64487 )
+light_color = Color( 0.964706, 0.894118, 0.72549, 1 )
+light_energy = 0.6
+omni_range = 11.6437
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.5206, 3.7611, 3.89649 )
 light_color = Color( 1, 0.913725, 0.647059, 1 )
+spot_range = 16.7986
+spot_angle = 12.0226
+
+[node name="SpotLight2" type="SpotLight" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.31455, 3.7611, 3.89649 )
+light_color = Color( 1, 0.913725, 0.647059, 1 )
+spot_range = 16.7986
+spot_angle = 11.1706
 
 [node name="HouseModel" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04178, 4.83441, 7.80322 )
 
-[node name="ChildMechanics" type="Node" parent="."]
+[node name="ChildSpawnPosition" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.66856 )
 
-[node name="Area" type="Area" parent="ChildMechanics"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Area" type="Area" parent="."]
 collision_layer = 8
 collision_mask = 2
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="ChildMechanics/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.27726, 0 )
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="ChildMechanics"]
-wait_time = 5.0
-
-[node name="ChildSpawnPosition" type="Spatial" parent="ChildMechanics"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.58635 )
-
-[connection signal="body_entered" from="ChildMechanics/Area" to="." method="_on_Area_body_entered"]
-[connection signal="timeout" from="ChildMechanics/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

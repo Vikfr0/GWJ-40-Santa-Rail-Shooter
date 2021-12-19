@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/enemy/snowball.gd" type="Script" id=1]
 [ext_resource path="res://assets/graphics/snowball.glb" type="PackedScene" id=2]
@@ -32,6 +32,21 @@ radius = 0.1
 height = 0.2
 radial_segments = 8
 rings = 4
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "explode"
@@ -94,7 +109,8 @@ draw_pass_1 = SubResource( 3 )
 
 [node name="ExplodeParticles" type="Particles" parent="."]
 emitting = false
-lifetime = 0.3
+amount = 14
+lifetime = 0.4
 one_shot = true
 explosiveness = 0.5
 randomness = 0.1
@@ -104,4 +120,5 @@ draw_pass_1 = SubResource( 4 )
 [node name="SelfDestructTimer" parent="." instance=ExtResource( 3 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 7 )
 anims/explode = SubResource( 5 )

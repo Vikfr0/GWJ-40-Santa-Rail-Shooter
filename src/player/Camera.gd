@@ -6,7 +6,7 @@ export var max_offset = Vector2(50, 25)  # Maximum hor/ver shake in pixels.
 
 export var max_roll = 0.1  # Maximum rotation in radians (use sparingly).
 
-export var snowball_trauma_amount = 0.2
+export var snowball_trauma_amount = 0.1
 
 
 var trauma = 0.0  # Current shake strength.
@@ -36,4 +36,4 @@ func shake():
 
 func _add_trauma(_pos: Vector3):
 	if Settings.screenshake_enabled:
-		trauma = min(trauma + snowball_trauma_amount, 0.1)
+		trauma = min(trauma + snowball_trauma_amount, 0.05)

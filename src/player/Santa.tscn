@@ -1,0 +1,156 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/audio/sounds/ouch.ogg" type="AudioStream" id=1]
+[ext_resource path="res://assets/audio/sounds/oi.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/sounds/BFPG thump.wav" type="AudioStream" id=3]
+[ext_resource path="res://src/player/santa_player.gd" type="Script" id=4]
+[ext_resource path="res://assets/audio/sounds/ow.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/voice/ow pebbles in that one.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/graphics/BFPG.glb" type="PackedScene" id=7]
+[ext_resource path="res://src/core/random_audio_player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/levels/environment.tres" type="Environment" id=9]
+[ext_resource path="res://src/player/Camera.gd" type="Script" id=10]
+[ext_resource path="res://assets/audio/voice/ouch was that a snowball.ogg" type="AudioStream" id=11]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 1.17105
+height = 1.97452
+
+[sub_resource type="CapsuleShape" id=5]
+radius = 1.45842
+height = 2.0
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CameraPivot/BFPG:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.693952, -1.14752, -1.16767 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CameraPivot/BFPG:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 5.201, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "gun_recoil"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("CameraPivot/BFPG:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.693952, -1.21456, -1.28351 ), Vector3( 0.693952, -1.14752, -1.16767 ), Vector3( 0.693952, -1.21456, -1.28351 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CameraPivot/BFPG:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 5.201, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[node name="Santa" type="KinematicBody" groups=["player"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.24149, 0 )
+collision_mask = 4
+script = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.49422, 0 )
+shape = SubResource( 1 )
+
+[node name="CameraPivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.73583, 0 )
+
+[node name="BFPG" parent="CameraPivot" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 0.995883, -0.09065, 0, 0.09065, 0.995883, 0.693952, -1.14752, -1.16767 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CameraPivot/BFPG"]
+stream = ExtResource( 3 )
+volume_db = -6.0
+bus = "Sounds"
+
+[node name="ProjectileSpawnPosition" type="Spatial" parent="CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.699925, -0.491603, -2.49196 )
+
+[node name="Camera" type="Camera" parent="CameraPivot"]
+environment = ExtResource( 9 )
+current = true
+fov = 80.0
+near = 0.01
+far = 8192.0
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="CameraPivot"]
+wait_time = 0.66
+one_shot = true
+
+[node name="Area" type="Area" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.37898, -0.00676441 )
+shape = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 8 )
+anims/gun_recoil = SubResource( 6 )
+
+[node name="FirstSnowballAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -3.0
+bus = "Voice"
+
+[node name="PebblesSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -3.0
+bus = "Voice"
+
+[node name="RandomAudioPlayer" parent="." instance=ExtResource( 8 )]
+
+[node name="OiSound" type="AudioStreamPlayer" parent="RandomAudioPlayer"]
+stream = ExtResource( 2 )
+volume_db = -3.0
+bus = "Sounds"
+
+[node name="OwSound" type="AudioStreamPlayer" parent="RandomAudioPlayer"]
+stream = ExtResource( 5 )
+volume_db = -3.0
+bus = "Sounds"
+
+[node name="OuchSound" type="AudioStreamPlayer" parent="RandomAudioPlayer"]
+stream = ExtResource( 1 )
+volume_db = -3.0
+bus = "Sounds"
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.45894, 0 )
+light_color = Color( 1, 0.843137, 0.592157, 1 )
+omni_range = 8.81864
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

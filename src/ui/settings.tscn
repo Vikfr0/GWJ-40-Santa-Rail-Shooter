@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/ui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/fonts/SourceSans3-VariableFont_wght.ttf" type="DynamicFontData" id=2]
@@ -6,13 +6,14 @@
 [ext_resource path="res://src/ui/mouse_sensitivity_slider.gd" type="Script" id=4]
 [ext_resource path="res://src/ui/screenshake_checkbox.gd" type="Script" id=5]
 [ext_resource path="res://src/ui/settings.gd" type="Script" id=6]
+[ext_resource path="res://src/ui/visuals_checkbox.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=2]
+size = 96
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 128
 font_data = ExtResource( 2 )
 
 [node name="Settings" type="Control"]
@@ -33,38 +34,184 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioSliders" type="VBoxContainer" parent="."]
+[node name="Label" type="Label" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 353.0
-margin_top = -225.0
-margin_right = 783.0
-margin_bottom = 343.0
+margin_left = -886.0
+margin_right = 886.0
+margin_bottom = 184.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "UGLY PAUSE MENU: BUDGET CUT EDITION"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 764.0
+margin_top = 315.0
+margin_right = 1194.0
+margin_bottom = 315.0
+rect_min_size = Vector2( 470, 400 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0823529, 0.0784314, 0.0784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 10.0
+margin_bottom = 10.0
 custom_constants/separation = 24
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="AudioSliders"]
-margin_right = 430.0
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer"]
+margin_right = 470.0
+margin_bottom = 92.0
+text = "Gameplay:"
+
+[node name="MouseSensitivity" type="VBoxContainer" parent="ColorRect2/VBoxContainer"]
+margin_top = 116.0
+margin_right = 470.0
+margin_bottom = 228.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer/MouseSensitivity"]
+margin_right = 470.0
+margin_bottom = 92.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Mouse sensitivity"
+
+[node name="HSlider" type="HSlider" parent="ColorRect2/VBoxContainer/MouseSensitivity"]
+margin_top = 96.0
+margin_right = 470.0
+margin_bottom = 112.0
+value = 50.0
+script = ExtResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect2/VBoxContainer"]
+margin_top = 252.0
+margin_right = 470.0
+margin_bottom = 352.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer/HBoxContainer"]
+margin_top = 4.0
+margin_right = 336.0
+margin_bottom = 96.0
+text = "Screenshake:"
+
+[node name="CheckBox" type="CheckBox" parent="ColorRect2/VBoxContainer/HBoxContainer"]
+margin_left = 340.0
+margin_right = 380.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 40, 40 )
+pressed = true
+script = ExtResource( 5 )
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+margin_left = 115.0
+margin_top = 314.0
+margin_right = 585.0
+margin_bottom = 714.0
+rect_min_size = Vector2( 470, 400 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0823529, 0.0784314, 0.0784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 10.0
+margin_bottom = 10.0
+custom_constants/separation = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect4/VBoxContainer"]
+margin_right = 518.0
+margin_bottom = 92.0
+text = "Visuals:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect4/VBoxContainer"]
+margin_top = 116.0
+margin_right = 518.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+margin_top = 4.0
+margin_right = 474.0
+margin_bottom = 96.0
+text = "I have a potato PC:"
+
+[node name="CheckBox" type="CheckBox" parent="ColorRect4/VBoxContainer/HBoxContainer"]
+margin_left = 478.0
+margin_right = 518.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 40, 40 )
+script = ExtResource( 7 )
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+margin_left = 1346.0
+margin_top = 302.0
+margin_right = 1816.0
+margin_bottom = 902.0
+rect_min_size = Vector2( 470, 600 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0823529, 0.0784314, 0.0784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioSliders" type="VBoxContainer" parent="ColorRect3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="ColorRect3/AudioSliders"]
+margin_right = 470.0
 margin_bottom = 136.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="AudioSliders/VBoxContainer5"]
-margin_right = 430.0
+[node name="Label" type="Label" parent="ColorRect3/AudioSliders/VBoxContainer5"]
+margin_right = 470.0
 margin_bottom = 92.0
 theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Master Volume"
 align = 1
 
-[node name="HSlider" type="HSlider" parent="AudioSliders/VBoxContainer5"]
+[node name="HSlider" type="HSlider" parent="ColorRect3/AudioSliders/VBoxContainer5"]
 margin_top = 96.0
-margin_right = 430.0
+margin_right = 470.0
 margin_bottom = 136.0
 rect_min_size = Vector2( 0, 40 )
 max_value = 1.0
@@ -72,25 +219,25 @@ step = 0.01
 value = 0.5
 script = ExtResource( 3 )
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="AudioSliders"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect3/AudioSliders"]
 margin_top = 160.0
-margin_right = 430.0
+margin_right = 470.0
 margin_bottom = 272.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="AudioSliders/VBoxContainer3"]
-margin_right = 430.0
+[node name="Label" type="Label" parent="ColorRect3/AudioSliders/VBoxContainer3"]
+margin_right = 470.0
 margin_bottom = 92.0
 theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Music Volume"
 align = 1
 
-[node name="HSlider" type="HSlider" parent="AudioSliders/VBoxContainer3"]
+[node name="HSlider" type="HSlider" parent="ColorRect3/AudioSliders/VBoxContainer3"]
 margin_top = 96.0
-margin_right = 430.0
+margin_right = 470.0
 margin_bottom = 112.0
 max_value = 1.0
 step = 0.01
@@ -98,25 +245,25 @@ value = 0.75
 script = ExtResource( 3 )
 bus_name = "Music"
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="AudioSliders"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="ColorRect3/AudioSliders"]
 margin_top = 296.0
-margin_right = 430.0
+margin_right = 470.0
 margin_bottom = 432.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="AudioSliders/VBoxContainer4"]
-margin_right = 430.0
+[node name="Label" type="Label" parent="ColorRect3/AudioSliders/VBoxContainer4"]
+margin_right = 470.0
 margin_bottom = 92.0
 theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Voice Volume"
 align = 1
 
-[node name="HSlider" type="HSlider" parent="AudioSliders/VBoxContainer4"]
+[node name="HSlider" type="HSlider" parent="ColorRect3/AudioSliders/VBoxContainer4"]
 margin_top = 96.0
-margin_right = 430.0
+margin_right = 470.0
 margin_bottom = 136.0
 rect_min_size = Vector2( 0, 40 )
 max_value = 1.0
@@ -125,25 +272,25 @@ value = 1.0
 script = ExtResource( 3 )
 bus_name = "Voice"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="AudioSliders"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect3/AudioSliders"]
 margin_top = 456.0
-margin_right = 430.0
+margin_right = 470.0
 margin_bottom = 568.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="AudioSliders/VBoxContainer2"]
-margin_right = 430.0
+[node name="Label" type="Label" parent="ColorRect3/AudioSliders/VBoxContainer2"]
+margin_right = 470.0
 margin_bottom = 92.0
 theme = ExtResource( 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Sounds Volume"
 align = 1
 
-[node name="HSlider" type="HSlider" parent="AudioSliders/VBoxContainer2"]
+[node name="HSlider" type="HSlider" parent="ColorRect3/AudioSliders/VBoxContainer2"]
 margin_top = 96.0
-margin_right = 430.0
+margin_right = 470.0
 margin_bottom = 112.0
 max_value = 1.0
 step = 0.01
@@ -151,80 +298,6 @@ value = 1.0
 script = ExtResource( 3 )
 bus_name = "Sounds"
 
-[node name="Label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -174.5
-margin_right = 174.5
-margin_bottom = 184.0
-theme = ExtResource( 1 )
-custom_fonts/font = SubResource( 2 )
-text = "PAUSE"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = 329.0
-margin_top = -212.0
-margin_right = 759.0
-margin_bottom = 140.0
-custom_constants/separation = 24
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 430.0
-margin_bottom = 92.0
-text = "Gameplay:"
-
-[node name="MouseSensitivity" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 116.0
-margin_right = 430.0
-margin_bottom = 228.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer/MouseSensitivity"]
-margin_right = 430.0
-margin_bottom = 92.0
-theme = ExtResource( 1 )
-custom_fonts/font = SubResource( 1 )
-text = "Mouse sensitivity"
-align = 1
-
-[node name="HSlider" type="HSlider" parent="VBoxContainer/MouseSensitivity"]
-margin_top = 96.0
-margin_right = 430.0
-margin_bottom = 112.0
-value = 50.0
-script = ExtResource( 4 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 252.0
-margin_right = 430.0
-margin_bottom = 352.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_top = 4.0
-margin_right = 336.0
-margin_bottom = 96.0
-text = "Screenshake:"
-
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
-margin_left = 340.0
-margin_right = 380.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 40, 40 )
-pressed = true
-script = ExtResource( 5 )
-
-[connection signal="value_changed" from="VBoxContainer/MouseSensitivity/HSlider" to="VBoxContainer/MouseSensitivity/HSlider" method="_on_HSlider_value_changed"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer/CheckBox" to="VBoxContainer/HBoxContainer/CheckBox" method="_on_CheckBox_toggled"]
+[connection signal="value_changed" from="ColorRect2/VBoxContainer/MouseSensitivity/HSlider" to="ColorRect2/VBoxContainer/MouseSensitivity/HSlider" method="_on_HSlider_value_changed"]
+[connection signal="toggled" from="ColorRect2/VBoxContainer/HBoxContainer/CheckBox" to="ColorRect2/VBoxContainer/HBoxContainer/CheckBox" method="_on_CheckBox_toggled"]
+[connection signal="toggled" from="ColorRect4/VBoxContainer/HBoxContainer/CheckBox" to="ColorRect4/VBoxContainer/HBoxContainer/CheckBox" method="_on_CheckBox_toggled"]

@@ -1,7 +1,7 @@
 class_name ChildEnemy
 extends KinematicBody
 
-const MOVE_SPEED = 14.0
+const MOVE_SPEED = 17.0
 const MAX_RANGE = 30.0
 
 var coziness = 0
@@ -11,7 +11,7 @@ const snowball = preload("res://src/enemy/snowball.tscn")
 
 onready var world = get_tree().get_nodes_in_group("game")[0]
 onready var player : KinematicBody = get_tree().get_nodes_in_group("player")[0]
-onready var home : Spatial = get_parent().get_parent().get_parent()
+onready var home = get_parent().get_parent()
 
 onready var model: Spatial = $kid
 onready var snowball_spawn_pos: Spatial = $SnowballSpawnPosition
