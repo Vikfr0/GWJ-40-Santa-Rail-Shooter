@@ -73,6 +73,6 @@ func _on_Area_body_entered(body) -> void:
 	if body is PresentProjectile:
 		body.queue_free()
 		coziness += 1
-		$RandomAudioPlayer.play_random_sound()
 		if coziness >= max_coziness:
 			state = States.going_home
+			$RandomAudioPlayer.play_random_sound()

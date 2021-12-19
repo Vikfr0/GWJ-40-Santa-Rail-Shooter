@@ -19,22 +19,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0808218, 6.38203, 0 )
 shape = SubResource( 1 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1294, 4.89004, 4.64487 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208852, 3.2299, 6.39758 )
 light_color = Color( 0.964706, 0.894118, 0.72549, 1 )
-light_energy = 0.6
-omni_range = 11.6437
-
-[node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.5206, 3.7611, 3.89649 )
-light_color = Color( 1, 0.913725, 0.647059, 1 )
-spot_range = 16.7986
-spot_angle = 12.0226
-
-[node name="SpotLight2" type="SpotLight" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.31455, 3.7611, 3.89649 )
-light_color = Color( 1, 0.913725, 0.647059, 1 )
-spot_range = 16.7986
-spot_angle = 11.1706
+light_energy = 0.224
+omni_range = 5.61655
 
 [node name="HouseModel" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04178, 4.83441, 7.80322 )

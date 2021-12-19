@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://src/terrain/terrain_noise.tres" type="OpenSimplexNoise" id=1]
 [ext_resource path="res://src/shaders/depth_getter.shader" type="Shader" id=2]
 [ext_resource path="res://src/shaders/snow.shader" type="Shader" id=3]
 [ext_resource path="res://src/terrain/snow_noise_tex.tres" type="Texture" id=4]
@@ -20,9 +19,9 @@ flags_unshaded = true
 params_cull_mode = 1
 
 [sub_resource type="PlaneMesh" id=6]
-size = Vector2( 512, 512 )
-subdivide_width = 64
-subdivide_depth = 64
+size = Vector2( 64, 64 )
+subdivide_width = 63
+subdivide_depth = 63
 
 [sub_resource type="ViewportTexture" id=7]
 viewport_path = NodePath("vp_snow_objects")
@@ -45,17 +44,17 @@ shader_param/normal_map = ExtResource( 7 )
 
 [sub_resource type="PlaneMesh" id=10]
 custom_aabb = AABB( -32, -32, -32, 64, 64, 64 )
-size = Vector2( 512, 512 )
-subdivide_width = 64
-subdivide_depth = 64
+size = Vector2( 64, 64 )
+subdivide_width = 639
+subdivide_depth = 639
 
 [node name="terrain" type="StaticBody"]
-collision_layer = 8
-collision_mask = 20
+collision_layer = 2
 script = ExtResource( 5 )
-terrain_size = Vector2( 512, 512 )
-gen_noise = ExtResource( 1 )
-max_terrain_height = 1.5
+terrain_size = Vector2( 32, 32 )
+max_terrain_height = 4.0
+terrain_resolution = Vector2( 32, 32 )
+snow_vert_per_unit = Vector2( 5, 5 )
 
 [node name="vp_terrain" type="Viewport" parent="."]
 size = Vector2( 640, 640 )
