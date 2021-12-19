@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/enemy/house.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/player/santa_player.tscn" type="PackedScene" id=2]
@@ -12,10 +12,12 @@
 [ext_resource path="res://assets/audio/voice/lets get this over weather.ogg" type="AudioStream" id=10]
 [ext_resource path="res://src/levels/game_over_area.gd" type="Script" id=11]
 [ext_resource path="res://assets/audio/voice/hohoho merry christmas.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/audio/voice/time to get cozy.ogg" type="AudioStream" id=13]
 [ext_resource path="res://src/player/Santa.tscn" type="PackedScene" id=14]
-[ext_resource path="res://assets/audio/voice/time to get home.ogg" type="AudioStream" id=15]
+[ext_resource path="res://assets/audio/music/get cozy.ogg" type="AudioStream" id=15]
 [ext_resource path="res://assets/audio/music/Djengle Bells.ogg" type="AudioStream" id=16]
 [ext_resource path="res://src/terrain/pine_tree_group.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/ui/game_over_maybe.tscn" type="PackedScene" id=18]
 
 [sub_resource type="SphereShape" id=8]
 radius = 19.3747
@@ -57,7 +59,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 7.5, 8, 14.5, 15 ),
+"times": PoolRealArray( 6.5, 7, 13.5, 14 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -86,7 +88,7 @@ tracks/1/keys = {
 "start_offset": 0.0,
 "stream": null
 } ],
-"times": PoolRealArray( 2, 7.5, 20, 27.1 )
+"times": PoolRealArray( 0.2, 5.8, 17.5, 24.6 )
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("../GameGUI:visible")
@@ -95,7 +97,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 20 ),
+"times": PoolRealArray( 0, 17.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -139,10 +141,34 @@ tracks/2/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("GameOverGUI:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../MusicPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 16 ) ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "outro"
-length = 25.0
+length = 70.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
@@ -150,7 +176,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 4, 6 ),
+"times": PoolRealArray( 6, 8 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 0.192157, 0.192157, 0.192157, 1 ) ]
@@ -193,13 +219,13 @@ tracks/3/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 15 )
+"stream": ExtResource( 13 )
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": null
 } ],
-"times": PoolRealArray( 0, 6.5 )
+"times": PoolRealArray( 0, 5.2 )
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("../MusicPlayer:volume_db")
@@ -208,10 +234,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 2, 5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 2, 5, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -6.0, -30.0, -80.0 ]
+"values": [ -6.0, -30.0, -30.0, -6.0 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("../MusicPlayer:playing")
@@ -220,10 +246,36 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 5 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 1,
-"values": [ false ]
+"values": [  ]
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("../MusicPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+} ],
+"times": PoolRealArray( 5 )
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("GameOverGUI:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 8.1, 10.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Curve3D" id=1]
@@ -343,8 +395,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GameOverGUI" parent="Outro" instance=ExtResource( 18 )]
+modulate = Color( 1, 1, 1, 0 )
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Outro"]
-stream = ExtResource( 15 )
+stream = ExtResource( 13 )
 volume_db = -3.0
 bus = "Voice"
 

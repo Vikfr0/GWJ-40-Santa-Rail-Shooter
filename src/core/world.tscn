@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/audio/voice/intro dialogue.ogg" type="AudioStream" id=1]
 [ext_resource path="res://assets/fonts/SourceSans3-VariableFont_wght.ttf" type="DynamicFontData" id=2]
@@ -94,23 +94,6 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=16]
-resource_name = "fade_in_loading"
-length = 6.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("LoadingLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.7, 4.3, 6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -345,10 +328,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 2.5, 3.7, 5.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 2.5, 3.7, 5.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.35, 1.0 ]
+"values": [ 0.0, 0.0, 0.35, 1.0 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("SleptThroughLabel:percent_visible")
@@ -419,6 +402,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0.105882, 0.105882, 0.105882, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("../LoadingLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "fade_in_game"
@@ -471,8 +466,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"clips": PoolStringArray( "fade_in_out_sound_on_label", "logo_intro", "fade_out_logo", "fade_in_out_pause_label", "fade_in_loading" ),
-"times": PoolRealArray( 0, 8.2, 11.8, 13.7, 34.4 )
+"clips": PoolStringArray( "fade_in_out_sound_on_label", "logo_intro", "fade_out_logo", "fade_in_out_pause_label" ),
+"times": PoolRealArray( 0, 8.2, 11.8, 13.7 )
 }
 tracks/1/type = "animation"
 tracks/1/path = NodePath("../../Intro/IntroAnimationPlayer")
@@ -497,6 +492,18 @@ tracks/2/keys = {
 "args": [  ],
 "method": "load_game"
 } ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../LoadingLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 34.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [node name="World" type="Node" groups=["world"]]
@@ -540,9 +547,9 @@ __meta__ = {
 [node name="LogoBot" type="TextureRect" parent="GUI/Intro"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 640.0
+margin_left = -320.0
 margin_top = -186.0
-margin_right = 1280.0
+margin_right = 320.0
 margin_bottom = -58.0
 texture = ExtResource( 15 )
 __meta__ = {
@@ -554,10 +561,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 640.0
-margin_top = 1130.0
-margin_right = 1280.0
-margin_bottom = 1258.0
+margin_left = -320.0
+margin_top = 50.0
+margin_right = 320.0
+margin_bottom = 178.0
 texture = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -571,7 +578,6 @@ bus = "Music"
 [node name="LogoAnimationPlayer" type="AnimationPlayer" parent="GUI/Intro"]
 root_node = NodePath("../..")
 anims/RESET = SubResource( 9 )
-anims/fade_in_loading = SubResource( 16 )
 anims/fade_in_out_pause_label = SubResource( 11 )
 anims/fade_in_out_sound_on_label = SubResource( 12 )
 anims/fade_out_logo = SubResource( 10 )
@@ -682,10 +688,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 388.5
-margin_top = 821.0
-margin_right = 1531.5
-margin_bottom = 1008.0
+margin_left = -571.5
+margin_top = -259.0
+margin_right = 571.5
+margin_bottom = -72.0
 rect_pivot_offset = Vector2( 571, 93 )
 theme = ExtResource( 17 )
 custom_fonts/font = SubResource( 17 )

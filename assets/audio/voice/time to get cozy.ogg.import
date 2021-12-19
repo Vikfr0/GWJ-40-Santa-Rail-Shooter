@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/time to get cozy.ogg-8cedb5c801fa287c50a9244f8a5912be.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/voice/time to get cozy.ogg"
+dest_files=[ "res://.import/time to get cozy.ogg-8cedb5c801fa287c50a9244f8a5912be.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

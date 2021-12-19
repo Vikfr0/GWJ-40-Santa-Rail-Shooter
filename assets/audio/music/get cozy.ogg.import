@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/get cozy.ogg-19c3c99d7fbf1ad6961586ec07fa44a6.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/music/get cozy.ogg"
+dest_files=[ "res://.import/get cozy.ogg-19c3c99d7fbf1ad6961586ec07fa44a6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
