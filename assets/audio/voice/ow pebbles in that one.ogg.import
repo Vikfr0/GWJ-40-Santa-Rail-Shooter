@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ow pebbles in that one.ogg-bc9e70f2135be99d54391eb84
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -31,6 +31,9 @@ func _on_Timer_timeout() -> void:
 
 
 func _on_Area_body_entered(body: Node) -> void:
+	print("body %s entered home" % body)
+	if body is ChildEnemy:
+		print("child is returning home: %s" % body.is_going_home())
 	if body is ChildEnemy and body.is_going_home():
 		emit_signal("child_returned")
 		body.queue_free()

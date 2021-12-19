@@ -11,5 +11,5 @@ dest_files=[ "res://.import/lets get this over weather.ogg-23845eb5e578346737a71
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

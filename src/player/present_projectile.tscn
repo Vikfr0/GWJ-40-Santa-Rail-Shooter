@@ -70,8 +70,8 @@ size = Vector3( 0.18, 0.18, 0.18 )
 
 [node name="PresentProjectile" type="KinematicBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
-collision_layer = 8
-collision_mask = 14
+collision_layer = 16
+collision_mask = 10
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

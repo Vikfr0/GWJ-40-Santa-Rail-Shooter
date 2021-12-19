@@ -55,6 +55,7 @@ window/size/height=1080
 [global]
 
 layer=false
+physi=false
 
 [input]
 
@@ -75,6 +76,7 @@ pause_menu={
 3d_physics/layer_2="enemy"
 3d_physics/layer_3="snowball"
 3d_physics/layer_4="objects"
+3d_physics/layer_5="gifts"
 
 [physics]
 

@@ -2,7 +2,7 @@ class_name ChildEnemy
 extends KinematicBody
 
 const MOVE_SPEED = 14.0
-const MAX_RANGE = 24.0
+const MAX_RANGE = 30.0
 
 var coziness = 0
 var max_coziness = 3
@@ -25,7 +25,6 @@ func is_going_home():
 
 
 func throw_snowball():
-	print("throwing snowball")
 	var projectile = snowball.instance()
 	projectile.target = player.get_node("CameraPivot")
 	
@@ -38,11 +37,15 @@ func throw_snowball():
 func _process(_delta: float):
 	var child_pos: Vector3 = self.global_transform.origin
 	if state == States.gonna_f_up_santa:
-		look_at(player.global_transform.origin, Vector3.UP)
+		var player_pos := player.global_transform.origin
+		look_at(player_pos, Vector3.UP)
+		
 		self.rotation.x = 0
 		self.rotation.z = 0
-		var distance_to_player := player.global_transform.origin - child_pos
-		if abs(distance_to_player.length()) > MAX_RANGE:
+		player_pos.y = 0
+		
+		var distance_to_player := player_pos - child_pos
+		if abs(distance_to_player.length()) > MAX_RANGE and not model.is_throwing():
 			distance_to_player.y = 0
 			var _collision = move_and_slide(distance_to_player.normalized() * MOVE_SPEED)
 			model.start_run_animation()

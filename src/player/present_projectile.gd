@@ -11,4 +11,5 @@ func _process(delta: float):
 		var parts = explo_particles.instance()
 		get_tree().get_nodes_in_group("game")[0].add_child(parts)
 		parts.global_transform.origin = self.global_transform.origin
-		queue_free()
+		if collision.collider.get_collision_layer() == 8 or collision.collider.get_collision_layer() == 4:
+			queue_free()

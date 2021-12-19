@@ -11,5 +11,5 @@ dest_files=[ "res://.import/time to get home.ogg-04e94b76c9805d504141b7644078c52
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

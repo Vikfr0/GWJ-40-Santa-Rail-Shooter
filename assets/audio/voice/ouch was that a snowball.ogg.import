@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ouch was that a snowball.ogg-f10b760953564f7db724624
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

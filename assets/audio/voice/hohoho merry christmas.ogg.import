@@ -11,5 +11,5 @@ dest_files=[ "res://.import/hohoho merry christmas.ogg-c896a7c3bb63630cd6586d572
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

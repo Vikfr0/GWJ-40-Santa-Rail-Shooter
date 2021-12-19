@@ -11,5 +11,5 @@ dest_files=[ "res://.import/damn lil brats.ogg-861b6e366c2f3d93e2fe43a035a1bbfb.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

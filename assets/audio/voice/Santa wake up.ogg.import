@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Santa wake up.ogg-5e39e199669e9aaa3f0322b92bc24062.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

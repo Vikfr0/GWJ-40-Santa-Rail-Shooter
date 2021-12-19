@@ -11,5 +11,5 @@ dest_files=[ "res://.import/everyone is waiting.ogg-e3fb92378006d4d21dcaf6fef8f2
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

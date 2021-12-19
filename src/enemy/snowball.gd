@@ -1,7 +1,7 @@
 class_name Snowball
 extends KinematicBody
 
-const PROJECTILE_SPEED = 40
+const PROJECTILE_SPEED = 70
 
 var target: Spatial
 

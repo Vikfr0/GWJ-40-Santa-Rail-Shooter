@@ -14,5 +14,4 @@ func start_throw_animation() -> void:
 
 
 func throw_snowball() -> void:
-	print("model throwing snowball")
 	get_parent().throw_snowball()

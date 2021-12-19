@@ -4,11 +4,11 @@
 [ext_resource path="res://src/enemy/kid_enemy.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.643743
+radius = 0.819562
 height = 1.23397
 
 [sub_resource type="CapsuleShape" id=2]
-radius = 1.13162
+radius = 0.876486
 height = 1.46815
 
 [node name="Kid" type="KinematicBody"]
@@ -26,14 +26,15 @@ shape = SubResource( 1 )
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0594687, 0 )
 collision_layer = 2
-collision_mask = 12
+collision_mask = 16
+monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.40982, 0 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 
 [node name="SnowballSpawnPosition" type="Spatial" parent="."]
