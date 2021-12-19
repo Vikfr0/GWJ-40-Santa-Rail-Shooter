@@ -2,7 +2,7 @@ extends Spatial
 
 signal child_returned
 
-var max_child_spawned = 6
+var max_child_spawned = 9
 var child_spawned = 0
 
 export var spawn_start_delay := 3.0

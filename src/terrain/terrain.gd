@@ -15,7 +15,7 @@ func _ready():
 func generate():
 		
 	# make sure children of viewports are centered
-	# $vp_snow_objects/Spatial.transform.origin = transform.origin
+	$vp_snow_objects/Spatial.transform.origin = transform.origin
 	$vp_terrain/Spatial.transform.origin = transform.origin
 		
 	
@@ -37,11 +37,11 @@ func generate():
 		)
 	))
 	
-	#$vp_snow_objects.size = snow_resolution
+	$vp_snow_objects.size = snow_resolution
 	$vp_terrain.size = snow_resolution
 	
-	#$vp_snow_objects/Spatial/depth_projection.mesh.size = terrain_size
-	#$vp_snow_objects/Spatial/Camera.size = terrain_size.x
+	$vp_snow_objects/Spatial/depth_projection.mesh.size = terrain_size
+	$vp_snow_objects/Spatial/Camera.size = terrain_size.x
 	$vp_terrain/Spatial/depth_projection.mesh.size = terrain_size
 	$vp_terrain/Spatial/Camera.size = terrain_size.x
 	
